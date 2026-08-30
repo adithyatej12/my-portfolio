@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adithya Tej BM — Data & Cloud Analytics</title>
+<meta name="description" content="Personal portfolio of Adithya Tej BM — profile, education, experience, skills, projects, and contact." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <span class="dot" aria-hidden="true"></span>
+      adithya<span class="brand-accent">.tej</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">Profile</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-status" id="apiStatus" title="Live backend status">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">checking region…</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO / DEPLOYMENT CONSOLE ============ -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">// personal-portfolio.deploy</p>
+      <h1>Adithya Tej BM<br>turns <span class="accent">raw data</span> into decisions.</h1>
+      <p class="hero-sub">
+        MCA student (Storage &amp; Cloud Technology) with a B.Sc. in Data
+        Sciences and Analytics. I work across Python, SQL, ML, and BI
+        tooling to build dashboards and models people actually use. This
+        site is itself the deployment — frontend on Azure Static Web Apps,
+        API on Azure App Service.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="console" role="img" aria-label="Deployment console showing build steps">
+      <div class="console-bar">
+        <span class="console-dot red"></span>
+        <span class="console-dot yellow"></span>
+        <span class="console-dot green"></span>
+        <span class="console-title">azure-deploy.log</span>
+      </div>
+      <ul class="console-body" id="consoleLog">
+        <li><span class="ln">01</span> <span class="ok">✓</span> resource-group <span class="mono">rg-adithya-portfolio</span> ready</li>
+        <li><span class="ln">02</span> <span class="ok">✓</span> static-web-app <span class="mono">swa-portfolio-frontend</span> deployed</li>
+        <li><span class="ln">03</span> <span class="ok">✓</span> app-service <span class="mono">app-portfolio-api</span> running</li>
+        <li><span class="ln">04</span> <span class="pending">…</span> region <span class="mono">Central India</span> <span class="typing" id="typingLine">pinging</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / PROFILE ============ -->
+<section id="about" class="section">
+  <h2 class="section-title"><span class="idx">01</span> Profile</h2>
+  <div class="about-grid">
+    <div class="about-photo">
+      <div class="photo-frame"><img src="profile.jpg" alt="Portrait of Adithya Tej BM" /></div>
+    </div>
+    <div class="about-text">
+      <p>
+        I'm an MCA student (Storage &amp; Cloud Technology) with a B.Sc. in
+        Data Sciences and Analytics. I work across Python, SQL, and R for
+        analysis and modeling, and Tableau, Power BI, and Excel to turn that
+        analysis into dashboards people in a business actually read.
+      </p>
+      <p>
+        On the engineering side, I've worked with Databricks and ETL
+        pipelines, and I'm building out cloud fundamentals across AWS,
+        Azure, and GCP — this portfolio's own deployment is part of that.
+      </p>
+      <div class="chip-row">
+        <span class="chip">Data Science</span>
+        <span class="chip">Machine Learning</span>
+        <span class="chip">BI &amp; Dashboards</span>
+        <span class="chip">Cloud Fundamentals</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education" class="section alt">
+  <h2 class="section-title"><span class="idx">02</span> Education</h2>
+  <ol class="timeline">
+    <li class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-head">
+          <h3>MCA — Storage &amp; Cloud Technology</h3>
+          <span class="timeline-date">Aug 2025 — May 2027 (In Progress)</span>
+        </div>
+        <p>Jain University, Bengaluru</p>
+      </div>
+    </li>
+    <li class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-head">
+          <h3>B.Sc. (Hons.), Data Sciences and Analytics</h3>
+          <span class="timeline-date">Sept 2021 — May 2024</span>
+        </div>
+        <p>Jain University, Bengaluru</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="cert-block">
+    <h3 class="cert-heading">Certifications</h3>
+    <div class="chip-row">
+      <span class="chip">Supply Chain Analytics — Rutgers</span>
+      <span class="chip">SQL — Univ. of Colorado Boulder</span>
+      <span class="chip">Data Visualization in Excel — Macquarie Univ.</span>
+      <span class="chip">Ordered Data Structures — UIUC</span>
+      <span class="chip">AWS Academy — Cloud Architecting</span>
+      <span class="chip">Intro to Data Science — Cisco Networking Academy</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="section">
+  <h2 class="section-title"><span class="idx">03</span> Experience</h2>
+  <ol class="timeline">
+    <li class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-head">
+          <h3>HR Analytics Intern</h3>
+          <span class="timeline-date">Apr 2026 — Aug 2026</span>
+        </div>
+        <p>IIFL Samasta Finance Limited</p>
+        <ul class="timeline-list">
+          <li>Managed AON assessment credentials and coordinated candidate testing logistics for hiring processes</li>
+          <li>Conducted daily retention bot calling to support employee retention tracking and analysis</li>
+          <li>Consolidated daily hiring trackers using VBA-based VLOOKUP/XLOOKUP automation for streamlined reporting</li>
+        </ul>
+      </div>
+    </li>
+    <li class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <div class="timeline-head">
+          <h3>HR Operations Intern</h3>
+          <span class="timeline-date">Jun 2023 — Jul 2023</span>
+        </div>
+        <p>UNO Minda Limited</p>
+        <ul class="timeline-list">
+          <li>Maintained HR databases and employee records, ensuring data accuracy and integrity across systems</li>
+          <li>Prepared HR analytics reports by collecting, cleaning, and analysing workforce data for stakeholder insights</li>
+          <li>Streamlined onboarding and exit documentation workflows; assisted in recruitment screening processes</li>
+        </ul>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="section alt">
+  <h2 class="section-title"><span class="idx">04</span> Skills</h2>
+  <p class="section-sub">Allocation reflects hands-on project and coursework time, not just familiarity.</p>
+  <div class="skills-grid" id="skillsGrid">
+    <!-- populated by script.js from /api/skills, with static fallback below -->
+    <div class="skill-card"><div class="skill-head"><span>Python (Pandas, NumPy, Scikit-learn)</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+    <div class="skill-card"><div class="skill-head"><span>SQL (MySQL)</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+    <div class="skill-card"><div class="skill-head"><span>Tableau / Power BI</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+    <div class="skill-card"><div class="skill-head"><span>Machine Learning</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+    <div class="skill-card"><div class="skill-head"><span>Excel (Advanced) / Dashboards</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+    <div class="skill-card"><div class="skill-head"><span>Databricks / ETL Pipelines</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+    <div class="skill-card"><div class="skill-head"><span>R</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
+    <div class="skill-card"><div class="skill-head"><span>AWS / Azure / GCP</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
+    <div class="skill-card"><div class="skill-head"><span>MongoDB</span><span class="skill-pct">55%</span></div><div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div></div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="section alt">
+  <h2 class="section-title"><span class="idx">05</span> Projects</h2>
+  <div class="projects-grid" id="projectsGrid">
+    <!-- populated by script.js from /api/projects, with static fallback below -->
+    <article class="project-card">
+      <div class="project-status"><span class="status-dot building"></span>in progress</div>
+      <h3>Deep Reinforcement Learning for Board Games</h3>
+      <p>Implementing DRL algorithms with PyTorch to train agents that play classic board games.</p>
+      <div class="chip-row">
+        <span class="chip">Python</span>
+        <span class="chip">PyTorch</span>
+        <span class="chip">Deep Learning</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="link">Source →</a>
+      </div>
+    </article>
+    <article class="project-card">
+      <div class="project-status"><span class="status-dot live"></span>2025</div>
+      <h3>Pneumonia Detection using Machine Learning</h3>
+      <p>Built a pneumonia detection model on chest X-ray imaging data, with preprocessing, normalization, and dataset splitting to improve prediction quality.</p>
+      <div class="chip-row">
+        <span class="chip">Python</span>
+        <span class="chip">Deep Learning</span>
+        <span class="chip">Medical Imaging</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="link">Source →</a>
+      </div>
+    </article>
+    <article class="project-card">
+      <div class="project-status"><span class="status-dot live"></span>2025</div>
+      <h3>Product Analytics Dashboard</h3>
+      <p>Interactive Power BI dashboard merging multi-year sales and customer datasets, tracking Sales Achievement, Profitability, Average Discount, and Order Metrics.</p>
+      <div class="chip-row">
+        <span class="chip">Power BI</span>
+        <span class="chip">Data Modeling</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="link">Source →</a>
+      </div>
+    </article>
+    <article class="project-card">
+      <div class="project-status"><span class="status-dot live"></span>2026</div>
+      <h3>Resume Checker</h3>
+      <p>Desktop Java Swing app that parses and evaluates resume content against defined criteria — keywords, formatting, and scoring rules — and returns feedback.</p>
+      <div class="chip-row">
+        <span class="chip">Java</span>
+        <span class="chip">Java Swing</span>
+        <span class="chip">OOP</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="link">Source →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ RESUME ============ -->
+<section id="resume" class="section resume-section">
+  <h2 class="section-title"><span class="idx">06</span> Resume</h2>
+  <div class="resume-box">
+    <div>
+      <h3>Adithya_Tej_BM_Resume.pdf</h3>
+      <p class="section-sub">Last updated August 2026 · One page · PDF</p>
+    </div>
+    <a href="resume.pdf" class="btn btn-primary" download>Download resume</a>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section alt">
+  <h2 class="section-title"><span class="idx">07</span> Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p>Have a role, project, or question? The form posts straight to the API below — no third-party form service.</p>
+      <ul class="contact-list">
+        <li><span class="label">Email</span> adithyatej2002@gmail.com</li>
+        <li><span class="label">Phone</span> +91-8150894596</li>
+        <li><span class="label">Location</span> Bengaluru, India</li>
+        <li><span class="label">GitHub</span> github.com/adithyatej</li>
+        <li><span class="label">LinkedIn</span> linkedin.com/in/adithyatej</li>
+      </ul>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <label>
+        Name
+        <input type="text" name="name" required maxlength="80" />
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" required maxlength="120" />
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="5" required maxlength="1000"></textarea>
+      </label>
+      <button type="submit" class="btn btn-primary" id="contactSubmit">Send message</button>
+      <p class="form-status" id="formStatus" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Adithya Tej BM · Deployed on Azure Static Web Apps + App Service</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
