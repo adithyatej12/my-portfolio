@@ -8,6 +8,11 @@ const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 
 const app = express();
+
+// Azure App Service runs behind a reverse proxy.
+// Trust the first proxy so express-rate-limit can identify clients correctly.
+app.set("trust proxy", 1);
+
 const PORT = process.env.PORT || 3000;
 
 // ---------------------------------------------------------------------
