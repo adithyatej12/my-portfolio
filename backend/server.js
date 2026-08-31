@@ -1,23 +1,48 @@
 // Simple portfolio backend API — Express on Node.js
-// Designed to deploy as-is to Azure App Service (Linux, Node runtime).
+// Deployed on Azure App Service.
 
 const express = require("express");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // ---------------------------------------------------------------------
-// CORS
+// Security
 // ---------------------------------------------------------------------
+
+app.use(helmet());
 
 const allowedOrigin = process.env.ALLOWED_ORIGIN || "*";
 
-app.use(cors({
-  origin: allowedOrigin
-}));
+app.use(
+  cors({
+    origin: allowedOrigin
+  })
+);
 
-app.use(express.json());
+app.use(
+  express.json({
+    limit: "10kb"
+  })
+);
+
+// ---------------------------------------------------------------------
+// Rate limiting
+// ---------------------------------------------------------------------
+
+const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 5,
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+  message: {
+    error: "Too many contact requests. Please try again later."
+  }
+});
 
 // ---------------------------------------------------------------------
 // Profile
@@ -36,42 +61,15 @@ const profile = {
 // ---------------------------------------------------------------------
 
 const skills = [
-  {
-    name: "Python (Pandas, NumPy, Scikit-learn)",
-    level: 85
-  },
-  {
-    name: "SQL (MySQL)",
-    level: 80
-  },
-  {
-    name: "Tableau / Power BI",
-    level: 80
-  },
-  {
-    name: "Machine Learning",
-    level: 75
-  },
-  {
-    name: "Excel (Advanced) / Dashboards",
-    level: 75
-  },
-  {
-    name: "Databricks / ETL Pipelines",
-    level: 70
-  },
-  {
-    name: "R",
-    level: 65
-  },
-  {
-    name: "AWS / Azure / GCP",
-    level: 60
-  },
-  {
-    name: "MongoDB",
-    level: 55
-  }
+  { name: "Python (Pandas, NumPy, Scikit-learn)", level: 85 },
+  { name: "SQL (MySQL)", level: 80 },
+  { name: "Tableau / Power BI", level: 80 },
+  { name: "Machine Learning", level: 75 },
+  { name: "Excel (Advanced) / Dashboards", level: 75 },
+  { name: "Databricks / ETL Pipelines", level: 70 },
+  { name: "R", level: 65 },
+  { name: "AWS / Azure / GCP", level: 60 },
+  { name: "MongoDB", level: 55 }
 ];
 
 // ---------------------------------------------------------------------
@@ -145,16 +143,21 @@ const experience = [
 ];
 
 // ---------------------------------------------------------------------
-// Contact messages
+// Email configuration
 // ---------------------------------------------------------------------
 
-const messages = [];
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_APP_PASSWORD
+  }
+});
 
 // ---------------------------------------------------------------------
 // API Routes
 // ---------------------------------------------------------------------
 
-// Health check
 app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
@@ -165,56 +168,99 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Profile
 app.get("/api/profile", (req, res) => {
   res.json(profile);
 });
 
-// Skills
 app.get("/api/skills", (req, res) => {
   res.json(skills);
 });
 
-// Projects
 app.get("/api/projects", (req, res) => {
   res.json(projects);
 });
 
-// Experience
 app.get("/api/experience", (req, res) => {
   res.json(experience);
 });
 
+// ---------------------------------------------------------------------
 // Contact form
-app.post("/api/contact", (req, res) => {
+// ---------------------------------------------------------------------
+
+app.post("/api/contact", contactLimiter, async (req, res) => {
   const { name, email, message } = req.body || {};
 
-  if (!name || !email || !message) {
+  if (
+    typeof name !== "string" ||
+    typeof email !== "string" ||
+    typeof message !== "string"
+  ) {
     return res.status(400).json({
-      error: "name, email, and message are all required."
+      error: "Name, email and message are required."
     });
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  const cleanName = name.trim();
+  const cleanEmail = email.trim();
+  const cleanMessage = message.trim();
+
+  if (!cleanName || !cleanEmail || !cleanMessage) {
+    return res.status(400).json({
+      error: "Name, email and message cannot be empty."
+    });
+  }
+
+  if (cleanName.length > 100) {
+    return res.status(400).json({
+      error: "Name is too long."
+    });
+  }
+
+  if (cleanEmail.length > 254) {
+    return res.status(400).json({
+      error: "Email address is too long."
+    });
+  }
+
+  if (cleanMessage.length > 2000) {
+    return res.status(400).json({
+      error: "Message is too long."
+    });
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
     return res.status(400).json({
       error: "That email address doesn't look valid."
     });
   }
 
-  const entry = {
-    name,
-    email,
-    message,
-    receivedAt: new Date().toISOString()
-  };
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
+      replyTo: cleanEmail,
+      subject: `Portfolio Contact: ${cleanName}`,
+      text: `Name: ${cleanName}
 
-  messages.push(entry);
+Email: ${cleanEmail}
 
-  console.log("New contact message:", entry);
+Message:
+${cleanMessage}`
+    });
 
-  res.status(201).json({
-    ok: true
-  });
+    console.log(`Contact email sent from ${cleanEmail}`);
+
+    res.status(201).json({
+      ok: true
+    });
+  } catch (error) {
+    console.error("Email sending failed:", error);
+
+    res.status(500).json({
+      error: "Unable to send your message right now. Please try again later."
+    });
+  }
 });
 
 // ---------------------------------------------------------------------
