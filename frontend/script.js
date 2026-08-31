@@ -4,7 +4,7 @@
 // ---------------------------------------------------------------------
 const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
   ? "http://localhost:3000/api"
-  : "https://YOUR-BACKEND-APP-NAME.azurewebsites.net/api"; // <-- replace after deploying App Service
+  : "https://adithya-portfolio-api-2026-g6h7dudyc0gaevg7.centralindia-01.azurewebsites.net/api";// <-- replace after deploying App Service
 
 const statusDot = document.getElementById("statusDot");
 const statusText = document.getElementById("statusText");
