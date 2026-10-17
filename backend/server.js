@@ -83,40 +83,40 @@ const skills = [
 
 const projects = [
   {
-    title: "Deep Reinforcement Learning for Board Games",
+    title: "Dhanalakshmi Jewellery",
     description:
-      "Implementing DRL algorithms with PyTorch to train agents that play classic board games.",
-    tags: ["Python", "PyTorch", "Deep Learning"],
-    status: "building",
-    demoUrl: "",
-    repoUrl: ""
-  },
-  {
-    title: "Pneumonia Detection using Machine Learning",
-    description:
-      "Built a pneumonia detection model on chest X-ray imaging data, with preprocessing, normalization, and dataset splitting to improve prediction quality.",
-    tags: ["Python", "Deep Learning", "Medical Imaging"],
+      "Full-stack jewellery e-commerce app — React storefront, Spring Boot API, JWT authentication with BCrypt, email-OTP verification, and MySQL.",
+    tags: ["React", "Spring Boot", "MySQL"],
     status: "live",
     demoUrl: "",
-    repoUrl: ""
+    repoUrl: "https://github.com/adithyatej12/dhanalakshmi-jewellery"
   },
   {
-    title: "Product Analytics Dashboard",
+    title: "Microservices Modernization on AWS",
     description:
-      "Interactive Power BI dashboard merging multi-year sales and customer datasets, tracking Sales Achievement, Profitability, Average Discount, and Order Metrics.",
-    tags: ["Power BI", "Data Modeling"],
+      "Migrated a monolith to microservices on AWS — Docker images on ECR, ECS Fargate behind an Application Load Balancer, RDS MySQL, with CodePipeline/CodeDeploy CI/CD.",
+    tags: ["Docker", "AWS", "CI/CD"],
     status: "live",
     demoUrl: "",
-    repoUrl: ""
+    repoUrl: "https://github.com/adithyatej12/microservices-modernization-aws"
   },
   {
-    title: "Resume Checker",
+    title: "Cloud Analytics Lab",
     description:
-      "Desktop Java Swing app that parses and evaluates resume content against defined criteria and returns feedback.",
-    tags: ["Java", "Java Swing", "OOP"],
+      "Azure data-engineering lab — Data Factory pipelines, Blob Storage, ADLS Gen2, Synapse Dedicated SQL Pool, and serverless SQL analytics.",
+    tags: ["Azure", "Data Factory", "Synapse"],
     status: "live",
     demoUrl: "",
-    repoUrl: ""
+    repoUrl: "https://github.com/adithyatej12/Cloud-Analytics-Lab"
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "This site — static frontend on Azure Static Web Apps backed by a Node.js/Express API on Azure App Service, deployed with GitHub Actions.",
+    tags: ["JavaScript", "Azure", "Node.js"],
+    status: "live",
+    demoUrl: "",
+    repoUrl: "https://github.com/adithyatej12/my-portfolio"
   }
 ];
 
