@@ -117,15 +117,6 @@ const projects = [
     status: "live",
     demoUrl: "",
     repoUrl: "https://github.com/adithyatej12/Cloud-Analytics-Lab"
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "This site — static frontend on Azure Static Web Apps backed by a Node.js/Express API on Azure App Service, deployed with GitHub Actions.",
-    tags: ["JavaScript", "Azure", "Node.js"],
-    status: "live",
-    demoUrl: "",
-    repoUrl: "https://github.com/adithyatej12/my-portfolio"
   }
 ];
 
