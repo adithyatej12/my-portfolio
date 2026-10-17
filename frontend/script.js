@@ -20,8 +20,8 @@ async function checkApiHealth() {
     if (typingLine) typingLine.textContent = "connected";
   } catch (err) {
     statusDot.classList.add("building");
-    statusText.textContent = "api offline (edit API_BASE)";
-    if (typingLine) typingLine.textContent = "waiting for API_BASE";
+    statusText.textContent = "api offline";
+    if (typingLine) typingLine.textContent = "retrying connection";
   }
 }
 

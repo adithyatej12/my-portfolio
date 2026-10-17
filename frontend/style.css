@@ -97,6 +97,11 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 @media (max-width: 780px) {
   .nav-links { display: none; }
 }
+/* On small phones the status text crowds the brand — keep just the dot. */
+@media (max-width: 560px) {
+  .nav-status #statusText { display: none; }
+  .nav-status { padding: 7px 9px; }
+}
 
 /* ---------- HERO ---------- */
 .hero { max-width: 1120px; margin: 0 auto; padding: 72px 24px 40px; }
@@ -181,11 +186,15 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 .console-body li {
   display: flex;
   gap: 10px;
-  padding: 5px 0;
+  padding: 5px 6px 5px 0;
   color: var(--text-dim);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+/* On narrow screens let long log lines wrap instead of truncating. */
+@media (max-width: 640px) {
+  .console-body li { white-space: normal; }
 }
 .console-body .ln { color: #3A4A6B; }
 .console-body .ok { color: var(--live); }
@@ -368,6 +377,8 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 }
 .project-card p { color: var(--text-dim); font-size: 0.92rem; margin: 0; }
 .project-links { display: flex; gap: 16px; margin-top: 4px; }
+/* API projects without URLs render an empty row — hide it. */
+.project-links:empty { display: none; }
 .link { font-size: 0.88rem; color: var(--accent); }
 .link:hover { text-decoration: underline; }
 
@@ -384,6 +395,9 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
   padding: 24px 28px;
 }
 .resume-box h3 { font-size: 1.1rem; }
+/* .section-sub has a negative top margin meant for section headers;
+   inside the resume card it would overlap the title — reset it. */
+.resume-box .section-sub { margin: 6px 0 0; }
 
 /* ---------- CONTACT ---------- */
 .contact-grid {
@@ -410,7 +424,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
   padding: 10px 12px;
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem; /* 16px — smaller sizes trigger auto-zoom on iOS */
   resize: vertical;
 }
 .contact-form input:focus-visible, .contact-form textarea:focus-visible, a:focus-visible, button:focus-visible {
