@@ -83,6 +83,15 @@ const skills = [
 
 const projects = [
   {
+    title: "Opti-Advisr — AWS Cost Optimizer",
+    description:
+      "Team-built AWS cost optimization dashboard — serverless Python/Lambda cost retriever with Cost Explorer analytics, Terraform infrastructure, React frontend, and an AI advisor for savings recommendations.",
+    tags: ["React", "AWS Lambda", "Terraform"],
+    status: "live",
+    demoUrl: "https://optiadvisr.site",
+    repoUrl: "https://github.com/Opti-Advisr/Opti-Advisr"
+  },
+  {
     title: "Dhanalakshmi Jewellery",
     description:
       "Full-stack jewellery e-commerce app — React storefront, Spring Boot API, JWT authentication with BCrypt, email-OTP verification, and MySQL.",
