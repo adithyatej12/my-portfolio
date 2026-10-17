@@ -136,13 +136,11 @@ const experience = [
     ]
   },
   {
-    role: "HR Operations Intern",
+    role: "Data Analytics Intern",
     company: "UNO Minda Limited",
     period: "Jun 2023 — Jul 2023",
     highlights: [
-      "Maintained HR databases and employee records, ensuring data accuracy and integrity across systems",
-      "Prepared HR analytics reports by collecting, cleaning, and analysing workforce data for stakeholder insights",
-      "Streamlined onboarding and exit documentation workflows; assisted in recruitment screening processes"
+      "Collected, cleaned, and analyzed datasets to prepare reports and insights for business stakeholders"
     ]
   }
 ];
