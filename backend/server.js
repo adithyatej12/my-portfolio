@@ -92,6 +92,15 @@ const projects = [
     repoUrl: "https://github.com/Opti-Advisr/Opti-Advisr"
   },
   {
+    title: "Bank Statement Analyzer",
+    description:
+      "Upload a bank statement CSV and get spending auto-categorized — regex rules tuned for Indian bank narrations, FastAPI backend, React dashboard, deployed live on Cloudflare Workers.",
+    tags: ["Python", "React", "Cloudflare Workers"],
+    status: "live",
+    demoUrl: "https://bank-statement-analyzer.adithyatej2002.workers.dev",
+    repoUrl: "https://github.com/adithyatej12/bank-statement-analyzer"
+  },
+  {
     title: "Dhanalakshmi Jewellery",
     description:
       "Full-stack jewellery e-commerce app — React storefront, Spring Boot API, JWT authentication with BCrypt, email-OTP verification, and MySQL.",
